@@ -3,13 +3,15 @@ const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
 const cors = require("cors");
+const port = process.env.PORT || 4044;
+
 app.use(cors());
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     // listen for requests
-    app.listen(process.env.PORT, () => {
+    app.listen(port, () => {
       console.log("connected to db and listening on port 4001!!!");
     });
   })
