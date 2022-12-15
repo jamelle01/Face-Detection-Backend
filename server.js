@@ -33,14 +33,10 @@ const userSchema = {
 };
 
 const User = mongoose.model("User", userSchema);
-const func = (text) => {
-  console.log(text);
-}
-
 
 // get all user
 app.get("/", async (req, res) => {
   const users = await User.find({}).sort({ updatedAt: -1 });
-  func('check ')
+  console.log('hello')
   res.status(200).json(users);
 });
