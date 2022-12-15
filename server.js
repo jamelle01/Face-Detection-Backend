@@ -37,6 +37,12 @@ const User = mongoose.model("User", userSchema);
 // get all user
 app.get("/", async (req, res) => {
   const users = await User.find({}).sort({ updatedAt: -1 });
-  console.log('hello')
   res.status(200).json(users);
 });
+app.get("/hello", async (req, res) => {
+  const users = {
+    "message": "hello"
+  }
+  res.status(200).json(users);
+});
+
