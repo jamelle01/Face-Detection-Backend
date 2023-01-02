@@ -57,6 +57,7 @@ app.post("/post", async (req, res) => {
   };
 
   const xhr = new XMLHttpRequest();
+  console.log("hey")
 
   // post
   xhr.open(
@@ -88,7 +89,7 @@ app.post("/post", async (req, res) => {
 
     if (resObj.errorCode === 0) {
       // authorized successfully
-      res.status(200).json({message:"success"});
+      res.status(200).json({ message: "success" });
     } else {
       // authorization failed
       res.send({ message: "failure" });
