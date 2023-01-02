@@ -42,7 +42,7 @@ app.get("/", async (req, res) => {
 });
 app.post("/post", async (req, res) => {
   const { clientMac, apMac, ssidName, radioId } = req.body;
-
+  console.log("suc")
   const authInfo = {
     clientMac: clientMac,
     apMac: apMac,
