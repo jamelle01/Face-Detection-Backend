@@ -93,7 +93,7 @@ app.post("/post", async (req, res) => {
 });
 app.post("/ff", async (req, res) => {
   console.log("suc")
-  res.send("success");
+  res.send({ message: 'success' });
 });
 
 // function getCSRFToken() {
