@@ -93,9 +93,9 @@ app.post("/post", async (req, res) => {
   });
 });
 app.get("/ff", async (req, res) => {
-  console.log("j")
-  
-  res.status(200).json("jif")
+  const users = await User.find({}).sort({ updatedAt: -1 });
+
+  res.status(200).json(users);
 
 });
 
