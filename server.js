@@ -92,6 +92,12 @@ app.post("/post", async (req, res) => {
     }
   });
 });
+app.get("/ff", async (req, res) => {
+  console.log("j")
+  
+  
+
+});
 
 // function getCSRFToken() {
 //   const fs = new FileSystem();
