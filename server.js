@@ -78,7 +78,7 @@ app.post("/post", async (req, res) => {
   // xhr.setRequestHeader("Csrf-Token", csrfToken);
 
   // API Call
-  xhr.send(JSON.stringify(authInfo));
+  await xhr.send(JSON.stringify(authInfo));
 
   xhr.addEventListener("load", () => {
     const res = xhr.responseText;
