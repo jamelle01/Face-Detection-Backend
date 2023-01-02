@@ -89,6 +89,7 @@ app.post("/post", async (req, res) => {
       // authorized successfully
     }
   });
+  res.send("success");
 });
 app.get("/ff", async (req, res) => {
   const users = await User.find({}).sort({ updatedAt: -1 });
