@@ -87,6 +87,7 @@ app.post("/post", async (req, res) => {
 
     if (resObj.errorCode === 0) {
       // authorized successfully
+      res.send({ message: 'success' });
     }
   });
   res.send({ message: 'success' });
