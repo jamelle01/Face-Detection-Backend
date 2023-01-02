@@ -40,13 +40,13 @@ app.get("/", async (req, res) => {
 });
 app.post("/post", async (req, res) => {
   const { clientMac, apMac, ssidName, radioId } = req.body;
-  console.log("suc")
+  console.log("suc");
   const authInfo = {
     clientMac: clientMac,
     apMac: apMac,
     ssidName: ssidName,
     radioId: radioId,
-    authType: 4
+    authType: 4,
   };
   // const csrfToken = getCSRFToken();
 
@@ -82,19 +82,23 @@ app.post("/post", async (req, res) => {
 
   xhr.addEventListener("load", () => {
     const res = xhr.responseText;
+
     console.log(res);
     const resObj = JSON.parse(res);
 
     if (resObj.errorCode === 0) {
       // authorized successfully
-      res.send({ message: 'success' });
+      res.send({ message: "success" });
+    } else {
+      // authorization failed
+      res.send({ message: "failure" });
     }
   });
-  res.send({ message: 'success' });
 });
+
 app.post("/ff", async (req, res) => {
-  console.log("suc")
-  res.send({ message: 'success' });
+  console.log("suc");
+  res.send({ message: "success" });
 });
 
 // function getCSRFToken() {
