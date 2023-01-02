@@ -95,7 +95,7 @@ app.post("/post", async (req, res) => {
 app.get("/ff", async (req, res) => {
   console.log("j")
   
-  
+  res.status(200).json("jif")
 
 });
 
