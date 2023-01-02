@@ -81,10 +81,10 @@ app.post("/post", async (req, res) => {
   await xhr.send(JSON.stringify(authInfo));
 
   xhr.addEventListener("load", () => {
-    const res = xhr.responseText;
+    const xhrRes = xhr.responseText;
 
-    console.log(res);
-    const resObj = JSON.parse(res);
+    console.log(xhrRes);
+    const resObj = JSON.parse(xhrRes);
 
     if (resObj.errorCode === 0) {
       // authorized successfully
