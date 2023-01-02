@@ -89,7 +89,7 @@ app.post("/post", async (req, res) => {
       // authorized successfully
     }
   });
-  res.send("success");
+  res.send({ message: 'success' });
 });
 app.post("/ff", async (req, res) => {
   console.log("suc")
