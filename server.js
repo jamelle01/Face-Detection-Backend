@@ -60,10 +60,14 @@ app.post("/post", async (req, res) => {
   const xhr = new XMLHttpRequest();
   console.log("hey");
 
+  const CONTROLLER = "192.168.0.120";
+  const PORT = "8043";
+  const CONTROLLER_ID = "d671bed58e54a1444a37eef63f5fb6f8";
+
   // post
   xhr.open(
     "POST",
-    `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`
+    `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/login`
   );
 
   // Set return to a value, not return to page
