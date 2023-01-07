@@ -38,6 +38,7 @@ app.get("/", async (req, res) => {
   const users = await User.find({}).sort({ updatedAt: -1 });
   res.status(200).json(users);
 });
+
 app.post("/post", async (req, res) => {
   const { clientMac, apMac, ssidName, radioId } = req.body;
   console.log("suc");
@@ -57,7 +58,7 @@ app.post("/post", async (req, res) => {
   };
 
   const xhr = new XMLHttpRequest();
-  console.log("hey")
+  console.log("hey");
 
   // post
   xhr.open(
@@ -95,6 +96,61 @@ app.post("/post", async (req, res) => {
       res.send({ message: "failure" });
     }
   });
+});
+
+app.post("/post1", async (req, res) => {
+  const loginInfo = {
+    name: "tplink",
+    password: "tplink",
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.rejectUnauthorized = false;
+
+  xhr.addEventListener("load", () => {
+    const resObj = JSON.parse(xhr.responseText);
+
+    if (resObj.errorCode === 0) {
+      // setCSRFToken(resObj.result.token);
+    }
+  });
+
+  const CONTROLLER = "192.168.0.120";
+  const PORT = "8043";
+  const CONTROLLER_ID = "d671bed58e54a1444a37eef63f5fb6f8";
+
+  xhr.open(
+    "POST",
+    `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/login`
+  );
+
+  Object.entries(headers).forEach(([key, value]) =>
+    xhr.setRequestHeader(key, value)
+  );
+
+  xhr.send(JSON.stringify(loginInfo));
+
+  function setCSRFToken(token) {
+    const fs = new FileSystem();
+
+    const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
+    if (!file) {
+      console.error("Unable to open file!");
+      return;
+    }
+
+    file.write(token);
+
+    file.close();
+
+    return token;
+  }
 });
 
 app.post("/ff", async (req, res) => {
