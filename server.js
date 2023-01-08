@@ -182,27 +182,28 @@ app.post("/post1", async (req, res) => {
     const resObj = await response.json();
 
     if (resObj.errorCode === 0) {
-      setCSRFToken(resObj.result.token);
+      // setCSRFToken(resObj.result.token);
+      res.send({ message: "success" });
     }
   } catch (error) {
     console.error(error);
   }
 
-  async function setCSRFToken(token) {
-    const fs = new FileSystem();
+  // async function setCSRFToken(token) {
+  //   const fs = new FileSystem();
 
-    const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
-    if (!file) {
-      console.error("Unable to open file!");
-      return;
-    }
+  //   const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
+  //   if (!file) {
+  //     console.error("Unable to open file!");
+  //     return;
+  //   }
 
-    file.write(token);
+  //   file.write(token);
 
-    file.close();
+  //   file.close();
 
-    return token;
-  }
+  //   return token;
+  // }
 });
 
 app.post("/ff", async (req, res) => {
