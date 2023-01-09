@@ -60,7 +60,7 @@ app.post("/post", async (req, res) => {
   const xhr = new XMLHttpRequest();
   console.log("hey");
 
-  const CONTROLLER = "192.168.0.120";
+  const CONTROLLER = "192.168.0.110";
   const PORT = "8043";
   const CONTROLLER_ID = "d671bed58e54a1444a37eef63f5fb6f8";
 
@@ -167,7 +167,7 @@ app.post("/post1", async (req, res) => {
     Accept: "application/json",
   };
 
-  const CONTROLLER = "192.168.0.120";
+  const CONTROLLER = "192.168.0.110";
   const PORT = "8043";
   const CONTROLLER_ID = "d671bed58e54a1444a37eef63f5fb6f8";
   const url = `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/login`;
