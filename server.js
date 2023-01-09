@@ -167,10 +167,10 @@ app.post("/post1", async (req, res) => {
     Accept: "application/json",
   };
 
-  const CONTROLLER = "192.168.0.110";
-  const PORT = "8043";
-  const CONTROLLER_ID = "d671bed58e54a1444a37eef63f5fb6f8";
-  const url = `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/login`;
+  // const CONTROLLER = "192.168.0.110";
+  // const PORT = "8043";
+  // const CONTROLLER_ID = "d671bed58e54a1444a37eef63f5fb6f8";
+  const url = `https://192.168.0.110:8043/d671bed58e54a1444a37eef63f5fb6f8/api/v2/hotspot/login`;
 
   try {
     const response = await fetch(url, {
